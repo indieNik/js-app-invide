@@ -1,0 +1,50 @@
+<style>
+    .page-link {
+        color: tomato;
+        background: rgba(255, 99, 71, 0.025);
+        padding: 7px;
+        margin: 0% 0.3%;
+    }
+    .page-link:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        background: tomato;
+        color: white;
+    }
+    .active {
+        background: tomato;
+        color: white;
+    }
+    .page-link-header {
+        text-align: center;
+        color: slategray;
+        font-size: small;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .page-link-container {
+        text-align: center;
+        font-size: small;
+        padding: 10px;
+    }
+    @media screen and (min-width: 768px) {
+    }
+</style>
+
+<p class="page-link-header">Showing {{paginatedItems.length}} of {{itemsToPaginate.length}} results - Page {{page}} of {{pagesArr.length}}</p>
+<p class="page-link-container">
+    {{#each pagesArr as |p|}}
+        <a class="page-link" id={{p}} onclick={{action "changePageTo" p}}>{{p}}</a>
+    {{/each}}
+</p>
+{{#each paginatedItems as |album|}}
+    <div class="album-pill">
+        <img src="{{album.albumThumbnail}}" alt="album thumbnail">
+        <span>
+            <h4>{{album.albumName}}</h4>
+            {{#link-to "album.track" album.id}}View Tracks{{/link-to}}
+        </span>
+    </div>
+{{/each}}
+
+{{yield}}

@@ -1,0 +1,87 @@
+<style>
+
+    #searchDiv {
+        display: block;
+    }
+    .artist-container {
+        display: block;
+        width: 75%;
+        margin: 10% 10% 12% 10%;
+        padding: 5px;
+    }
+    .artist-container:last-child {
+        margin-bottom: 50%;
+    }
+    .artist-pill {
+        margin: 30px 20px;
+    }
+    .artist-pill:hover {
+        background: aliceblue;
+    }
+    .artist-pill img {
+        height: 100px;
+        width: 100px;
+        vertical-align: middle;
+        border-radius: 50px;
+    }
+    .artist-pill span {
+        display: inline-block;
+        line-height: 2em;
+        vertical-align: middle;        
+        margin-left: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: tomato;
+        vertical-align: text-bottom;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: tomato;
+        vertical-align: text-bottom;
+    }
+    @media screen and (max-width: 768px) {
+        .artist-container {
+            display: block;
+            width: 90%;
+            margin: 10% 10% 12% 5%;
+            padding: 5px;
+        }
+        .artist-pill {
+            margin-top: 10%;
+            width: 100%;
+        }
+        .artist-pill span {
+            display: inline-block;
+            line-height: 1.2em;
+            vertical-align: middle;
+        }
+        .artist-pill img {
+            height: 70px;
+            width: 70px;
+        }
+        .artist-pill span {
+            font-size: calc(1rem - 15%);
+        }
+    }
+</style>
+
+<div class="artist-container">
+    {{#if model}}
+        <h3 style="color:tomato">{{model.length}} Search Results</h3>
+        {{#each model as |artist|}}
+            <div class="artist-pill">
+                <img src="{{artist.artistThumbnail}}" alt="artist thumbnail">
+                <span>
+                    <h4>{{artist.artistName}}</h4>
+                    {{#link-to "album" artist.id}}View Albums &rarr;{{/link-to}}
+                </span>
+            </div>
+        {{/each}}
+    {{else}}
+    <br><br>
+        <h4 style="color:tomato; text-align:center;">Dang! No Artists found with that name. Try again, may be?</h4>
+    {{/if}}
+</div>
+
+{{outlet}}

@@ -1,0 +1,106 @@
+<style>
+
+    #searchDiv {
+        display: none;
+    }
+    .album-container {
+        display: block;
+        width: 75%;
+        margin: 0% 10% 12% 10%;
+        {{!-- background: rgba(0, 0, 0, 0.63); --}}
+        padding: 5px;
+    }
+    .album-pill:last-child {
+        margin-bottom: 10%;
+    }
+    .album-pill .hero-artist {
+        width: 150px;
+        height: 150px;
+    }
+    .album-pill {
+        margin: 30px 20px;
+    }
+    .artist-pill img {
+        height: 150px;
+        width: 150px;
+        vertical-align: middle;
+    }
+    .artist-pill span {
+        display: inline-block;
+        line-height: 2em;
+        vertical-align: middle;        
+        margin-left: 15px;
+    }
+    .album-pill:hover {
+        background: aliceblue;
+    }
+    .album-pill img {
+        height: 100px;
+        width: 100px;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
+    .album-pill span {
+        display: inline-block;
+        line-height: 2em;
+        vertical-align: middle;        
+        margin-left: 15px;
+    }
+    a {
+        text-decoration: none;
+        color: tomato;
+        vertical-align: text-bottom;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: tomato;
+        vertical-align: text-bottom;
+    }
+    @media screen and (max-width: 768px) {
+        .album-container {
+            display: block;
+            width: 90%;
+            margin: 10% 10% 12% 5%;
+            padding: 5px;
+        }
+        .album-pill {
+            margin-top: 10%;
+            width: 100%;
+        }
+        .album-pill span {
+            display: inline-block;
+            line-height: 1.2em;
+            vertical-align: middle;
+        }
+        .album-pill img {
+            height: 70px;
+            width: 70px;
+        }
+        .album-pill .hero-artist {
+            height: 100px;
+            width: 100px;
+        }
+        .album-pill span {
+            font-size: calc(1rem - 15%);
+        }
+    }
+</style>
+
+<div class="album-container">
+    <a href="#" {{action "goBack"}}> &larr; Back to Search</a>
+    <br><br>
+    <div class="album-pill">
+        <img src="{{artist.artistThumbnail}}" class="hero-artist" alt="album thumbnail">
+        <span>
+            <h2>{{artist.artistName}}</h2>
+            <small>Followers: 87</small>
+        </span>
+    </div>
+
+    <h2>Albums</h2>
+
+    {{#paginated-pills itemsToPaginate=albums page=1 offset=5}}
+    {{/paginated-pills}}
+</div>
+
+{{outlet}}

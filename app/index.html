@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Artist Junction</title>
+    <meta name="description" content="Search for your favorite Artists,  Albums or Tracks. This Ember.js Progressive Web App is authored by Nikhil Patil">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/logo-small.png" type="image/gif" sizes="16x16">
+
+    {{content-for "head"}}
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/js-app-trial.css">
+    
+    <style>
+      .header-style {
+        background-color: tomato;
+        text-align: center;
+        color: #ffffff;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0px 0px 20px 0px #333;
+      }
+      .footer {
+        bottom: 0%;
+        left: 0%;
+        right: 0%;
+        position: fixed;
+        width: 100%;
+        background: #333;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-size: 0.75rem;
+        box-shadow: 0px 0px 20px 0px #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header-style">
+        <h1 class="header-title">Artist Junction</h1>
+        <br>
+        <small class="header-caption">Search for Artists and their Tracks</small>
+    </header>
+
+    {{content-for "head-footer"}}
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/js-app-trial.js"></script>
+
+    {{content-for "body-footer"}}
+    <footer>
+        <div class="footer">
+            Brought to you with <span style="color:tomato">&hearts;</span> by <a href="https://nikhilpatil.in" target="blank"><span style="color:tomato">indieNik</span></a>
+        </div>
+    </footer>
+  </body>
+</html>

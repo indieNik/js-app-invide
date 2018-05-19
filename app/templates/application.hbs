@@ -1,0 +1,64 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: rgba(255, 99, 71, 0.025);
+    }
+    @media screen and (max-width: 500px){
+        
+    }
+    #searchDiv {
+        width: 100%;
+        display: block;
+        {{!-- margin-top: calc(20% - 20px); --}}
+    }
+    #searchDiv input{
+        display: block;
+        border: none;
+        width: 100%;
+        height: 100px;
+        color: tomato;
+        font-size: 1.5rem;
+        padding: 5px;
+        text-align: center;
+    }
+    input:active, input:focus {
+        outline: none;
+    }
+    #searchDiv input:focus::-webkit-input-placeholder {
+        color:transparent;
+    }
+    #searchDiv input:focus:-moz-placeholder {
+        color:transparent;
+    }
+    #searchDiv button{
+        width: 30%;
+        margin: 0% 35%;
+        font-size: 0.75rem;
+        padding: 10px;
+        border: 2px solid tomato;
+        box-shadow: 3px 3px 10px #00000052;
+        background:#fff;
+        color: #333;
+        cursor: pointer;
+    }
+    #searchDiv button:hover{
+        box-shadow: 3px 3px #000000a1;
+        background:#333;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+<div id="searchDiv">
+    <label for="searchArtist" hidden>Search Artist</label>
+    {{input id="searchArtist" value=searchText placeholder="Search by Artist name"}}
+    <br><br>
+    <button type="submit" {{action "searchArtistsByName" searchText}}>Search</button>
+</div>
+
+
+{{outlet}}
